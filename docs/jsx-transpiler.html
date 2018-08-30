@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jsx transpiler - iodide</title>
+<link rel="stylesheet" type="text/css" href="https://iodide.io/master/iodide.master.css">
+</head>
+<body>
+<script id="jsmd" type="text/jsmd">
+%% meta
+{
+  "title": "jsx transpiler",
+  "languages": {
+    "js": {
+      "pluginType": "language",
+      "languageId": "js",
+      "displayName": "Javascript",
+      "codeMirrorMode": "javascript",
+      "module": "window",
+      "evaluator": "eval",
+      "keybinding": "j",
+      "url": ""
+    },
+    "jsx": {
+      "languageId": "jsx",
+      "displayName": "jsx",
+      "codeMirrorMode": "jsx",
+      "keybinding": "x",
+      "url": "evaluate-jsx.js",
+      "module": "jsx",
+      "evaluator": "evaluateJSX",
+      "pluginType": "language"
+    }
+  },
+  "lastExport": "2018-08-30T23:11:18.502Z"
+}
+
+%% md
+# IODIDE x JSX = ⚛
+
+This is a small demo showing how to add a React / JSX transpiler into Iodide.
+
+This makes quick vizualization-crafting a real breeze, and should make dashboard prototyping even more powerful.
+
+__note__: proof of concept. Don't dig too deep. `evaluate-jsx.js` is not yet configured to work in run-all mode yet.
+
+%% plugin
+{
+  "languageId": "jsx",
+  "displayName": "jsx",
+  "codeMirrorMode": "jsx",
+  "keybinding": "x",
+  "url": "evaluate-jsx.js",
+  "module": "jsx",
+  "evaluator": "evaluateJSX",
+  "pluginType": "language"
+}
+
+%% md
+Here's a small example of how to quickly mock up a specialized DOM element w/ jsx.
+
+`iodide-jsx` provides a custom handler that renders any React component passed to it directly into a new div. As you can see from the example below, it kind of just works, and frankly works better than having to draw charts into a div element in a markdown cell.
+
+%% code {"language":"jsx"}
+var y = (v) => <div style={{
+    textAlign:'center', display: 'table-cell', verticalAlign: 'middle',
+    width:80, height:40, 
+    borderRadius:50,
+    backgroundColor: v > 1000 ? 'black' : 'tomato', color: 'white', fontWeight: 'bold', fontSize: '20px'}}>
+  {v}
+</div>
+let table = [
+  {a: y(1001), b: new Date()},
+  {a: y(54.2), b: new Date('2018-08-01')},
+]
+table
+
+%% md
+Here's another example, utilizing svg within jsx for a very powerful, flexible, quick bar charting function. Solutions like this could go a really long way in making iodide more immediately useful.
+
+%% code {"language":"jsx"}
+var bars = (vals, width=200, leftMargin=15, barHeight=20, betweenMargin=1) => {
+  	let out = (<svg width={200} height={vals*20}>
+  		{vals.map((d,i)=>(<rect fill={'lightgray'} 
+              width={d * 200-leftMargin} height={barHeight} x={leftMargin} y={i*(barHeight + betweenMargin)} />))}
+        {vals.map((d,i)=>(<text x={0} dy={'-.35em'} y={(i+1)*(barHeight + betweenMargin)}>{i}</text>))}
+	</svg>)
+    return out
+}
+bars([Math.random()/3 + .1, Math.random()/2 + .1, .542, .712313, .42,.115])
+
+%% js
+</script>
+<div id='page'></div>
+<script src='https://iodide.io/master/iodide.master.js'></script>
+</body>
+</html>

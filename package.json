@@ -1,0 +1,31 @@
+{
+  "name": "jsx-iodide",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch --env=dev"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^9.0.0",
+    "babel-loader": "^8.0.0",
+    "babel-preset-es2016": "^6.24.1",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
+    "eslint-plugin-react": "^7.11.1",
+    "preact": "^8.3.1",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0"
+  },
+  "dependencies": {
+    "@babel/standalone": "^7.0.0",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "babel-preset-react": "^6.24.1"
+  }
+}

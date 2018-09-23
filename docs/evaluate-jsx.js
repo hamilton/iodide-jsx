@@ -1,5 +1,5 @@
 const REACT = 'https://cdnjs.cloudflare.com/ajax/libs/react/16.4.2/umd/react.production.min.js'
-const REACT_DOM = 'react-dom-build.js'
+const REACT_DOM = 'https://hamilton.github.io/iodide-jsx/react-dom-build.js'
 const BABEL_STANDALONE = 'https://unpkg.com/babel-standalone@6/babel.min.js'
 
 const loadResource = url => new Promise((resolve) => {

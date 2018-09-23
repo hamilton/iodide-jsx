@@ -42,12 +42,12 @@ module.exports = (env) => {
   }
 
   return {
-    entry: `${APP_DIR}/evaluate-jsx.js`,
+    entry: `${APP_DIR}/react-dom-build.js`,
     mode: 'development',
     output: {
       path: BUILD_DIR,
-      filename: 'evaluate-jsx.js',
-      library: 'SmallMultiple',
+      filename: 'react-dom-build.js',
+      library: 'evaluate-jsx',
       libraryTarget: 'umd',
       libraryExport: 'default',
     },

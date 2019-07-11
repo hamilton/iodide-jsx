@@ -3,7 +3,7 @@
     "displayName": "jsx",
     "codeMirrorMode": "jsx",
     "keybinding": "x",
-    "url": "https://raw.githubusercontent.com/hamilton/iodide-jsx/master/docs/evaluate-jsx.js",
+    "url": "evaluate-jsx.js",
     "module": "jsx",
     "evaluator": "evaluateJSX",
     "pluginType": "language"

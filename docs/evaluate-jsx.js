@@ -12,7 +12,7 @@ const loadResource = url => new Promise((resolve) => {
   };
   head.appendChild(theScript);
 })
-console.log('THIS IS BZROKEN')
+
 Promise.all([loadResource(REACT), loadResource(REACT_DOM), loadResource(BABEL_STANDALONE)])
   .then(() => {
     console.log(window)
@@ -26,7 +26,7 @@ Promise.all([loadResource(REACT), loadResource(REACT_DOM), loadResource(BABEL_ST
       window[variableName] = out;
     }
     window.iodide.addOutputHandler({
-      shouldHandle: val => window.React.isValidElement(val),
+      shouldRender: val => window.React.isValidElement(val),
       render: (val) => {
         const elem = document.createElement('div')
         window.ReactDOM.render(val, elem)

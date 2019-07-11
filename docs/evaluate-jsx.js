@@ -25,7 +25,7 @@ Promise.all([loadResource(REACT), loadResource(REACT_DOM), loadResource(BABEL_ST
       const out = variable
       window[variableName] = out;
     }
-    window.iodide.addOutputHandler({
+    window.iodide.addOutputRenderer({
       shouldRender: val => window.React.isValidElement(val),
       render: (val) => {
         const elem = document.createElement('div')

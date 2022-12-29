@@ -11,7 +11,7 @@
   "license": "ISC",
   "devDependencies": {
     "babel-eslint": "^9.0.0",
-    "babel-loader": "^8.0.0",
+    "babel-loader": "^8.3.0",
     "babel-preset-es2016": "^6.24.1",
     "eslint": "^5.4.0",
     "eslint-config-airbnb": "^17.1.0",
@@ -19,8 +19,8 @@
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.11.1",
     "preact": "^8.3.1",
-    "webpack": "^4.17.1",
-    "webpack-cli": "^3.1.0"
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "dependencies": {
     "@babel/standalone": "^7.0.0",
